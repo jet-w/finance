@@ -1,0 +1,33 @@
+{
+  "name": "jet-w",
+  "description": "Jet's Blog",
+  "version": "2.0.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "docs:build": "vuepress-vite build src",
+    "docs:clean-dev": "vuepress-vite dev src --clean-cache",
+    "docs:dev": "vuepress-vite dev src",
+    "docs:update-package": "pnpm dlx vp-update"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "2.0.0-rc.17",
+    "@vuepress/plugin-revealjs": "2.0.0-rc.52",
+    "codemirror": "5.65.12",
+    "plotly.js-dist-min": "^2.35.2",
+    "sass-embedded": "^1.79.4",
+    "vue": "^3.5.10",
+    "vuepress": "2.0.0-rc.17",
+    "vuepress-plugin-search-pro": "2.0.0-rc.57",
+    "vuepress-theme-hope": "2.0.0-rc.58"
+  },
+  "dependencies": {
+    "@vuepress/plugin-shiki": "2.0.0-rc.0",
+    "chart.js": "^4.4.4",
+    "echarts": "^5.5.1",
+    "flowchart.ts": "^3.0.1",
+    "katex": "^0.16.11",
+    "mermaid": "^11.2.1"
+  },
+  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
+}
