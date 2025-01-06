@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Candlestick Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
+</head>
+<body>
+    <canvas id="candlestickChart" width="800" height="400"></canvas>
+    <script>
+        // Get the context for the canvas
+        const ctx = document.getElementById('candlestickChart').getContext('2d');
+
+        // Sample Candlestick Data
+        const candlestickData = [
+            { x: '2024-11-24', o: 100, h: 105, l: 95, c: 102 },
+            { x: '2024-11-25', o: 102, h: 110, l: 100, c: 108 },
+            { x: '2024-11-26', o: 108, h: 115, l: 105, c: 110 },
+            { x: '2024-11-27', o: 110, h: 120, l: 108, c: 115 },
+            { x: '2024-11-28', o: 115, h: 125, l: 110, c: 120 }
+        ];
+
+        // Configure the Candlestick Chart
+        const candlestickChart = new Chart(ctx, {
+            type: 'candlestick', // Specify candlestick chart type
+            data: {
+                datasets: [{
+                    label: 'Candlestick Data',
+                    data: candlestickData,
+                    borderColor: 'black', // Outline color
+                    color: {
+                        up: 'green',   // Upward movement color
+                        down: 'red',   // Downward movement color
+                        unchanged: 'gray' // No change
+                    }
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true },
+                    title: {
+                        display: true,
+                        text: 'Candlestick Chart Example'
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'time',  // Use time scale for x-axis
+                        time: {
+                            unit: 'day'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
