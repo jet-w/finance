@@ -23,6 +23,9 @@ importers:
       katex:
         specifier: ^0.16.11
         version: 0.16.11
+      lightweight-charts:
+        specifier: ^4.2.2
+        version: 4.2.2
       mermaid:
         specifier: ^11.2.1
         version: 11.2.1
@@ -1467,6 +1470,9 @@ packages:
     resolution: {integrity: sha512-zCnTtlxNoAiDc3gqY2aYAWFx7XWWiasuF2K8Me5WbN8otHKTUKBwjPtNpRs/rbUZm7KxWAaNj7P1a/p52GbVug==}
     engines: {node: '>=0.10.0'}
 
+  fancy-canvas@2.1.0:
+    resolution: {integrity: sha512-nifxXJ95JNLFR2NgRV4/MxVP45G9909wJTEKz5fg/TZS20JJZA6hfgRVh/bC9bwl2zBtBNcYPjiBE4njQHVBwQ==}
+
   fast-glob@3.3.2:
     resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
     engines: {node: '>=8.6.0'}
@@ -1676,6 +1682,9 @@ packages:
 
   layout-base@2.0.1:
     resolution: {integrity: sha512-dp3s92+uNI1hWIpPGH3jK2kxE2lMjdXdr+DH8ynZHpd6PUlH6x6cbuXnoMmiNumznqaNO31xu9e79F0uuZ0JFg==}
+
+  lightweight-charts@4.2.2:
+    resolution: {integrity: sha512-H5u9BfUeWzOA90QaqAlGjz1tePa7kUihKSOMiE4538/xMuM3k3n6bWYxuZSj9zwIj1PhgY/J5HTA/4lMk/lYYQ==}
 
   lilconfig@3.1.2:
     resolution: {integrity: sha512-eop+wDAvpItUys0FWkHIKeC9ybYrTGbU41U5K7+bttZZeohvnY7M9dZ5kB21GNWiFT2q1OoPTvncPCgSOVO5ow==}
@@ -4342,6 +4351,8 @@ snapshots:
     dependencies:
       is-extendable: 0.1.1
 
+  fancy-canvas@2.1.0: {}
+
   fast-glob@3.3.2:
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -4542,6 +4553,10 @@ snapshots:
   layout-base@1.0.2: {}
 
   layout-base@2.0.1: {}
+
+  lightweight-charts@4.2.2:
+    dependencies:
+      fancy-canvas: 2.1.0
 
   lilconfig@3.1.2: {}
 

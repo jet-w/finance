@@ -22,10 +22,11 @@ export default defineUserConfig({
   theme,
   alias: {
     "@mermaid_preview": path.resolve(__dirname, "components/mermaid_convertor_preview.vue"),
+    "@MyTradingView": path.resolve(__dirname, "components/tradingview/trading_test.vue"),
   },
   head: [
     ['script', {"async":"", src: 'https://www.googletagmanager.com/gtag/js?id=G-4BP2YK8NPN', type: "text/javascript"}],
-    ['script', {src: '/src/gtag.js', type: "text/javascript"}],
+    ['script', {src: '/finance/src/gtag.js', type: "text/javascript"}],
   ]
   // Enable it with pwa
   // shouldPrefetch: false,
