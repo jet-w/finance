@@ -10,8 +10,8 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "en-US",
-      title: "Haiyue's Blog",
-      description: "Haiyue's page",
+      title: "Financial Blog",
+      description: "Financial Blog",
     },
     //"/zh/": {
     //  lang: "zh-CN",
@@ -21,13 +21,7 @@ export default defineUserConfig({
   },
   theme,
   alias: {
-    //"@Test": path.resolve(__dirname, "components/test.vue"),
-    "@Components": path.resolve(__dirname, "components"),
-    "@JS": path.resolve(__dirname, "public/src/js"),
-    "@MyChartjs": path.resolve(__dirname, "components/statistics/line_chart.vue"),
-    "@HtmlEditor": path.resolve(__dirname, "components/html_editor.vue"),
-    "@MindmapEditor": path.resolve(__dirname, "components/mindmap.vue"),
-    //"@Book": path.resolve(__dirname, "components/book.vue"),
+    "@mermaid_preview": path.resolve(__dirname, "components/mermaid_convertor_preview.vue"),
   },
   head: [
     ['script', {"async":"", src: 'https://www.googletagmanager.com/gtag/js?id=G-4BP2YK8NPN', type: "text/javascript"}],

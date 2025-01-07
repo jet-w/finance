@@ -1,5 +1,5 @@
 ---
-title: Finance Trading
+title: Trading System
 index: false
 icon: list-check
 author: Haiyue

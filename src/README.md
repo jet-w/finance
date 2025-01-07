@@ -4,22 +4,22 @@ layout: BlogHome
 icon: home
 title: Blog Home
 heroImage: /haiyue.svg
-heroText: Haiyue's blog
+heroText: Haiyue's Financial Blog
 sidebar: true
-bgImage: /assets/images/sky.jpg
-tagline: Notes from a coding dog
+bgImage: /finance/Finance.jpg
+tagline: Share Lots of things about finance trading stuff
 heroFullScreen: true
 projects:
   - icon: image-portrait
-    name: About me
-    desc: See details of me here
-    link: /intro
+    name: Trading System
+    desc: Test component for trading system
+    link: /finance/trading-system/
 
-  - icon: blog
-    name: Technique Notes
-    desc: All about my the technique study notes
-    link: /techniques/
 
+#  - icon: blog
+#    name: Technique Notes
+#    desc: All about my the technique study notes
+#    link: /techniques/
 #
 #  - icon: article
 #    name: article name
@@ -46,7 +46,7 @@ For related configuration docs, please see [blog homepage](https://theme-hope.vu
 -->
 
 <style>
-.vp-blogger-avatar {
+.vp-nav-logo, .vp-blogger-avatar {
     border-radius: 50%;
 }
 
@@ -54,9 +54,15 @@ For related configuration docs, please see [blog homepage](https://theme-hope.vu
     display: none;
 }*/
 
-.vp-pagination, .vp-article-wrapper {}
- 
-.vp-article-list {
+.vp-pagination, .vp-article-wrapper {
+
+}
+
+.vp-project-panel ~ .vp-article-list {
   display: none;
+}
+
+.vp-blog-hero-title, .vp-blog-hero-description {
+  color: red;
 }
 </style>

@@ -2,31 +2,11 @@ import { sidebar } from "vuepress-theme-hope";
 
 export const enSidebar = sidebar({
   "/": [
-    "",
     {
-      text: "Models",
-      icon: "list-check",
-      prefix: "models/",
-      children: "structure",
-    },
-    {
-      text: "Techniques",
+      text: "Trading System",
       icon: "book",
-      prefix: "techniques/",
+      prefix: "finance/trading-system",
       children: "structure",
     },
-    {
-      text: "Work",
-      icon: "list-check",
-      prefix: "work/",
-      children: "structure",
-    },
-    {
-      text: "Study",
-      icon: "list-check",
-      prefix: "study/",
-      children: "structure",
-    },
-    "intro"
   ],
 });
