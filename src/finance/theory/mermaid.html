@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermaid句法转换器</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    // Import mermaid
+    //import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const inputTextarea = document.getElementById('inputContent');
+      const resultContainer = document.getElementById('resultContent');
+      const mermaidPreview = document.getElementById('mermaidPreview');
+
+      // Default input content
+      const defaultContent = `
+---
+title: 保险
+---
+graph LR
+  王东 ---> 重疾
+  王东 ---> 住院报销
+  王东 --> 意外
+  王东 ---> 养老
+  重疾 ---> 吉祥至尊两全（新华）保额10万
+  重疾 ---> 健康无忧（新华）保额30万
+  住院报销 ---> 康健华尊（新华）
+  住院报销 ---> 吉祥至尊（新华）
+  意外 ---> 安心百分百
+  意外 ---> 百万任我行
+      
+      `;
+      let isInit = true;
+      // Set default content in textarea
+      inputTextarea.value = defaultContent;
+      //await updateMermaidContent(defaultContent);
+      
+      // Event listener for input change
+      inputTextarea.addEventListener('input', function() {
+        const content = inputTextarea.value;
+        updateMermaidContent(content);
+      });
+
+      // Update result content and mermaid graph
+      async function updateMermaidContent(content) {
+        const resultText = convert(content);
+        resultContainer.innerHTML = resultText.join('<br>');  // Display result as text
+        //mermaidPreview.textContent = resultText.join('\n');;  // Update Mermaid preview content
+        let code = resultText.join('\n')
+        
+        if (isInit){
+          // Render Mermaid graph
+          mermaid.contentLoaded();
+          isInit = false;
+        }else {
+          //// Generate a unique ID for the new graph
+          //const uniqueId = 'dynamicGraph-' + Date.now();
+          //
+          //// Render the new Mermaid graph using `mermaid.render`
+          //mermaid.render(uniqueId, mermaidPreview.textContent, (svgCode) => {
+          //  mermaidPreview.innerHTML = svgCode; // Update the container with the SVG
+          //}, mermaidPreview);
+          
+          
+          // Check if the code is valid
+          await mermaid.parse(code);
+          
+          // Generate unique ID for the diagram
+          const id = 'diagram-' + Date.now();
+          mermaidPreview.innerHTML = `<div class="mermaid" id="${id}">${code}</div>`;
+          
+          // Render the diagram
+          await mermaid.run();
+        }
+      }
+
+      // Generate letter codes
+      function* generateLetterCode() {
+        const letters = 'abcdefghijklmnopqrstuvwxyz';
+        let length = 1;
+        while (true) {
+          const combinations = getCombinations(letters, length);
+          for (const combination of combinations) {
+            yield combination;
+          }
+          length++;
+        }
+      }
+	  
+      // Convert input content into structured result
+      function convert(content) {
+        const lines = content.trim().split('\n');
+        const codeItem = {};
+        const rc = [];
+		let codes = generateLetterCode()
+        for (const line of lines) {
+          const items = getItems(line);
+          for (const item of items) {
+            if (!codeItem.hasOwnProperty(item)) {
+              codeItem[item] = codes.next().value;
+            }
+          }
+          if (items.length === 2) {
+            rc.push(`${getLstrip(line)} ${codeItem[items[0]]}[${items[0]}] ${getSplit(line)[0]} ${codeItem[items[1]]}[${items[1]}]`);
+          } else {
+            rc.push(line);
+          }
+        }
+        return rc;
+      }
+
+      // Convert to mermaid graph syntax
+      function convertToMermaid(content) {
+        const lines = content.trim().split('\n');
+        let mermaidString = '';
+        for (const line of lines) {
+          const items = getItems(line);
+          if (items.length === 2) {
+            mermaidString += `    ${items[0]} ---> ${items[1]}\n`;
+          }else{
+		    mermaidString += (line +`\n`);
+		  }
+        }
+        return mermaidString;
+      }
+
+
+      function getCombinations(chars, length) {
+        if (length === 1) return chars.split('');
+        const prevCombinations = getCombinations(chars, length - 1);
+        const combinations = [];
+        for (const char of chars) {
+          for (const combination of prevCombinations) {
+            combinations.push(char + combination);
+          }
+        }
+        return combinations;
+      }
+
+      function getLstrip(str) {
+        return str.slice(0, str.length - str.trimStart().length);
+      }
+
+      function getSplit(lineString) {
+        const pattern = /([-]{2,}>)/g;
+        return [...lineString.matchAll(pattern)].map(match => match[0]);
+      }
+
+      function getItems(lineString) {
+        return lineString.split(/[-]{2,}>/).map(item => item.trim());
+      }
+      
+      // Initialize mermaid.js
+      mermaid.initialize({ startOnLoad: true });
+    });
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    .left,
+    .right {
+      width: 30%;
+    }
+    textarea {
+      width: 100%;
+      height: 300px;
+      font-family: monospace;
+      padding: 10px;
+      font-size: 14px;
+    }
+    .result {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .mermaid {
+      margin-top: 20px;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 5px;
+      font-family: monospace;
+      min-height: 300px;
+      min-width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <a href="https://mermaid.live/">在线可视化工具</a>
+  <div class="container">
+    <div class="left">
+      <h3>原始内容</h3>
+      <textarea id="inputContent" placeholder="Enter your content here"></textarea>
+    </div>
+    <div class="right">
+      <h3>Mermaid语法</h3>
+      <div id="resultContent" class="result"></div>
+    </div>
+    <div class="right">
+      <h3>结果预览</h3>
+  <div id="mermaidPreview" class="mermaid">
+  </div>
+    </div>
+  </div>
+  
+</body>
+</html>

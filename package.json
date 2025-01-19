@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@vuepress/plugin-shiki": "2.0.0-rc.0",
+    "axios": "^1.7.9",
     "chart.js": "^4.4.4",
     "echarts": "^5.5.1",
     "flowchart.ts": "^3.0.1",

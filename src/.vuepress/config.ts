@@ -23,6 +23,7 @@ export default defineUserConfig({
   alias: {
     "@mermaid_preview": path.resolve(__dirname, "components/mermaid_convertor_preview.vue"),
     "@MyTradingView": path.resolve(__dirname, "components/tradingview/trading_test.vue"),
+    "@API": path.resolve(__dirname, "src/api"),
   },
   head: [
     ['script', {"async":"", src: 'https://www.googletagmanager.com/gtag/js?id=G-4BP2YK8NPN', type: "text/javascript"}],

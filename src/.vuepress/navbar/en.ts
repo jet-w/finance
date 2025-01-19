@@ -2,6 +2,9 @@ import { navbar } from "vuepress-theme-hope";
 
 export const enNavbar = navbar([
   "/",
+  "/finance/binance/README.md",
+  "/finance/theory/README.md",
+  "/finance/trading-system/README.md",
   //"/techniques/README.md",
   //"/study/README.md",
   //"/work/README.md",
