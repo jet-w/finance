@@ -81,3 +81,8 @@ graph LR
    k[其他指标] --> bk[漩涡指标（Vortex Indicator）]
    k[其他指标] --> bl[沙夫趋势周期（Schaff Trend Cycle）]
 ```
+
+
+
+## References
+[最大回撤计算公式及分析](https://bigquant.com/wiki/doc/JmQWXTMkcF#:~:text=%E6%9C%80%E5%A4%A7%E5%9B%9E%E6%92%A4%EF%BC%88Maximum%20Drawdown,%E7%9A%84%E6%BD%9C%E5%9C%A8%E6%8D%9F%E5%A4%B1%E8%B6%8A%E5%A4%A7%E3%80%82)

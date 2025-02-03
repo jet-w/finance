@@ -27,8 +27,8 @@ importers:
         specifier: ^0.16.11
         version: 0.16.11
       lightweight-charts:
-        specifier: ^4.2.2
-        version: 4.2.2
+        specifier: '5'
+        version: 5.0.1
       mermaid:
         specifier: ^11.2.1
         version: 11.2.1
@@ -1713,8 +1713,8 @@ packages:
   layout-base@2.0.1:
     resolution: {integrity: sha512-dp3s92+uNI1hWIpPGH3jK2kxE2lMjdXdr+DH8ynZHpd6PUlH6x6cbuXnoMmiNumznqaNO31xu9e79F0uuZ0JFg==}
 
-  lightweight-charts@4.2.2:
-    resolution: {integrity: sha512-H5u9BfUeWzOA90QaqAlGjz1tePa7kUihKSOMiE4538/xMuM3k3n6bWYxuZSj9zwIj1PhgY/J5HTA/4lMk/lYYQ==}
+  lightweight-charts@5.0.1:
+    resolution: {integrity: sha512-JjqI+Uoxuw/XESn6BeBp+o8kxa+CgvkbM7edhoarJ5KRjY1INqi0Hvahn88Q8Ou5sfckHbTGGKrM2lQQYsuH5A==}
 
   lilconfig@3.1.2:
     resolution: {integrity: sha512-eop+wDAvpItUys0FWkHIKeC9ybYrTGbU41U5K7+bttZZeohvnY7M9dZ5kB21GNWiFT2q1OoPTvncPCgSOVO5ow==}
@@ -4619,7 +4619,7 @@ snapshots:
 
   layout-base@2.0.1: {}
 
-  lightweight-charts@4.2.2:
+  lightweight-charts@5.0.1:
     dependencies:
       fancy-canvas: 2.1.0
 
